@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Sneha0024/product-comparison-app-ss.git/static/css/main.cc6c3eb4.css",
+    "main.js": "/Sneha0024/product-comparison-app-ss.git/static/js/main.b18f6289.js",
+    "index.html": "/Sneha0024/product-comparison-app-ss.git/index.html",
+    "main.cc6c3eb4.css.map": "/Sneha0024/product-comparison-app-ss.git/static/css/main.cc6c3eb4.css.map",
+    "main.b18f6289.js.map": "/Sneha0024/product-comparison-app-ss.git/static/js/main.b18f6289.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc6c3eb4.css",
+    "static/js/main.b18f6289.js"
+  ]
+}
