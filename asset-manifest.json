@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Sneha0024/product-comparison-app-ss/static/css/main.cc6c3eb4.css",
-    "main.js": "/Sneha0024/product-comparison-app-ss/static/js/main.b18f6289.js",
-    "index.html": "/Sneha0024/product-comparison-app-ss/index.html",
-    "main.cc6c3eb4.css.map": "/Sneha0024/product-comparison-app-ss/static/css/main.cc6c3eb4.css.map",
-    "main.b18f6289.js.map": "/Sneha0024/product-comparison-app-ss/static/js/main.b18f6289.js.map"
+    "main.css": "/product-comparison-app-ss/static/css/main.cc6c3eb4.css",
+    "main.js": "/product-comparison-app-ss/static/js/main.b18f6289.js",
+    "index.html": "/product-comparison-app-ss/index.html",
+    "main.cc6c3eb4.css.map": "/product-comparison-app-ss/static/css/main.cc6c3eb4.css.map",
+    "main.b18f6289.js.map": "/product-comparison-app-ss/static/js/main.b18f6289.js.map"
   },
   "entrypoints": [
     "static/css/main.cc6c3eb4.css",
