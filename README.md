@@ -9,7 +9,7 @@ A modern, responsive React application that allows users to **search, filter, an
 Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/product-comparison-app.git
+git clone https://github.com/Sneha0024/product-comparison-app-ss.git
 cd product-comparison-app
 
 npm install
