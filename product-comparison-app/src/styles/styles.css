@@ -1,0 +1,538 @@
+/* Global Theme Variables */
+:root {
+  --bg: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+  --text: #111;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --accent: linear-gradient(to right, #6a11cb, #2575fc);
+  --hover-glow: rgba(100, 100, 255, 0.3);
+  --compare-bg: rgba(0, 123, 255, 0.1);
+  --th-bg: linear-gradient(to right, #5f72bd, #9b23ea);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.dark {
+  --bg: linear-gradient(to right, #1c1c1c, #121212);
+  --text: #f5f5f5;
+  --card-bg: #1e1e2f;
+  --card-shadow: rgba(255, 255, 255, 0.1);
+  --accent: linear-gradient(to right, #00c6ff, #0072ff);
+  --hover-glow: rgba(0, 123, 255, 0.4);
+  --compare-bg: rgba(0, 123, 255, 0.08);
+  --th-bg: linear-gradient(to right, #2e335a, #1c1b33);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.4s ease;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  padding: 0 24px 40px;
+}
+
+/*Product Card Styling */
+.product-card {
+  background: var(--card-bg);
+  color: var(--text);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px var(--card-shadow);
+  padding: 1.2rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--accent);
+  opacity: 0.05;
+  transform: rotate(45deg);
+  z-index: 0;
+}
+
+.product-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 30px var(--hover-glow);
+}
+
+.product-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 12px;
+  z-index: 1;
+  position: relative;
+}
+
+/*Buttons */
+button {
+  background-image: var(--accent);
+  border: none;
+  padding: 10px 18px;
+  color: white;
+  border-radius: 8px;
+  margin-top: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  z-index: 10;
+  position: relative;
+}
+
+button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 6px 18px var(--hover-glow);
+}
+
+/* Comparison Table Container */
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  margin: 2rem 0;
+  transition: background 0.3s ease;
+}
+
+/* Header Styling */
+.comparison-table th {
+  background: linear-gradient(to right, #5f2c82, #49a09d);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 1rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Cell Styling */
+.comparison-table td {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #222;
+  background: rgba(255, 255, 255, 0.5);
+  transition: background 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+/* Alternate Row Styling */
+.comparison-table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Attribute Labels */
+.comparison-table td:first-child {
+  font-weight: 600;
+  text-align: left;
+  color: #333;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Feature Icons (Emojis for first 3 items) */
+.comparison-table ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comparison-table li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+  transition: background 0.3s ease;
+}
+
+/* Emoji Icons by Position */
+.comparison-table li:nth-child(1)::before {
+  content: "📱";
+}
+
+.comparison-table li:nth-child(2)::before {
+  content: "🔋";
+}
+
+.comparison-table li:nth-child(3)::before {
+  content: "💾";
+}
+
+/* Hover Effect */
+.comparison-table tr:hover td {
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-table tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+  /* Light tint for dark theme */
+}
+
+/* Even rows */
+.comparison-table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Slightly brighter */
+}
+
+body.light .comparison-table tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+body.light .comparison-table tr:nth-child(even) {
+  background-color: #fff;
+}
+
+
+body.dark .comparison-table tr:hover td {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.05);
+}
+
+/* Dark Mode Styling */
+body.dark .comparison-table {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .comparison-table th {
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  color: #fff;
+}
+
+body.dark .comparison-table td {
+  background: rgba(255, 255, 255, 0.08);
+  color: #eaeaea;
+}
+
+body.dark .comparison-table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body.dark .comparison-table td:first-child {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+body.dark .comparison-table li {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .comparison-table {
+    font-size: 0.85rem;
+    overflow: auto;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.75rem;
+  }
+
+  .app {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 20px;
+  }
+
+  .search-input {
+    width: 84% !important;
+    max-width: 260px;
+  }
+
+  .theme-toggle {
+    margin-left: 20px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  .comparison-table li {
+    flex-direction: column;
+  }
+}
+
+/* Compare Chips */
+.compare-item {
+  background-image: var(--compare-bg);
+  border-radius: 12px;
+  padding: 18px 44px;
+  padding-left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .compare-items {
+    /* flex-direction: column; */
+  }
+
+  .compare-item {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.compare-item img {
+  max-width: 120px;
+  object-fit: contain;
+}
+
+.compare-item button {
+  background: white;
+  color: red;
+  font-size: 18px;
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  padding: 11px 14px;
+}
+
+.compare-item span {
+  font-size: 20px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 50px;
+}
+
+/* Theme Toggle Icon */
+.theme-toggle {
+  font-size: 1.4rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.search-input {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.theme-toggle {
+  border: none;
+  background: none;
+  font-size: 1.2rem;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.9rem;
+}
+
+.compare-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+body.dark th,
+td {
+  border: none;
+}
+
+.comparison-table ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.comparison-table li {
+  padding: 8px 10px;
+  margin: 6px 0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 3px 6px rgba(0, 123, 255, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comparison-table li::before {
+  content: "✓";
+  font-weight: bold;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.comparison-table li:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+.product-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.product-card li {
+  background: rgba(255, 255, 255, 0.25);
+  color: #000;
+  padding: 10px 14px;
+  margin: 8px 0;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.product-card li:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Emojis based on order */
+.product-card li:nth-child(1)::before {
+  content: "📱";
+}
+
+.product-card li:nth-child(2)::before {
+  content: "🔋";
+}
+
+.product-card li:nth-child(3)::before {
+  content: "💾";
+}
+
+.product-card li::before {
+  font-size: 1.1rem;
+}
+
+/* Dark theme adjustments */
+body.dark .product-card li {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.05);
+}
+
+.compare-note {
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(255, 69, 58, 0.95);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  font-weight: 500;
+  z-index: 1000;
+  animation: bounceIn 0.5s ease;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.toast:hover {
+  box-shadow: 0 0 20px rgba(255, 69, 58, 0.6);
+  cursor: pointer;
+}
